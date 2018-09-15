@@ -1,0 +1,33 @@
+{% import 'bootstrap/wtf.html' as wtf %}
+{% import 'bootstrap/utils.html' as utils %}
+
+{% block doc -%}
+<!DOCTYPE html>
+  <html{% block html_attribs %}{% endblock html_attribs %}>
+  {%- block html %}
+    <head>
+      {%- block metas %}
+      <!-- Required meta tags -->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      {%- endblock metas %}
+
+      {%- block head %}
+      <title>{% block title %}Index{% endblock title %} - {{ pgettext('Title suffix', 'Texrrow') }}</title>
+
+      {%- block styles %}
+        <link href="{{url_for('static', filename='assets/front.css')}}" rel="stylesheet">
+      {%- endblock styles %}
+      {%- endblock head %}
+    </head>
+    <body class="">
+      {%- block body %}
+        <div class="container-fluid">
+          {{ utils.flashed_messages()|safe }}
+          {%- block content %}{% endblock -%}
+        </div>
+      {% endblock -%}
+    </body>
+  {%- endblock html %}
+  </html>
+{% endblock doc -%}

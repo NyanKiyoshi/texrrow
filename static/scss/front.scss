@@ -1,0 +1,18 @@
+@import "variables";
+@import "~bootstrap/scss/bootstrap";
+
+@import '~@fortawesome/fontawesome-free/scss/variables';
+@import '~@fortawesome/fontawesome-free/scss/mixins';
+@import '~@fortawesome/fontawesome-free/scss/core';
+@import '~@fortawesome/fontawesome-free/scss/larger';
+@import '~@fortawesome/fontawesome-free/scss/fixed-width';
+@import '~@fortawesome/fontawesome-free/scss/icons';
+@import "~@fortawesome/fontawesome-free/scss/solid";
+
+@import "components/forms";
+@import "components/sidebar";
+@import "components/checkbox";
+@import "components/buttons";
+@import "components/breadcrumb";
+@import "components/cards";
+@import "components/pygments";

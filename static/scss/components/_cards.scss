@@ -1,0 +1,22 @@
+.card-body {
+  overflow-x: auto;
+}
+
+.card .listing {
+  .list-group-item {
+    display: flex;
+
+    .entry {
+      display: block;
+      flex: 1;
+    }
+
+    a.entry {
+      outline: none;
+      text-decoration: none;
+    }
+    &:hover {
+      background-color: $table-hover-bg;
+    }
+  }
+}

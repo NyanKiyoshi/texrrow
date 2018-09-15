@@ -1,0 +1,31 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+flask = "*"
+flask-sqlalchemy = "*"
+flask-migrate = "*"
+sqlalchemy-migrate = "*"
+flask-wtf = "*"
+flask-babel = "*"
+wtforms-alchemy = "*"
+"jinja2-highlight" = "*"
+"psycopg2" = "*"
+sqlalchemy-utils = "*"
+python-slugify = "*"
+flask-login = "*"
+passlib = "*"
+flask-bootstrap-4-alpha = {ref = "fork", git = "https://github.com/NyanKiyoshi/flask-bootstrap-4-alpha"}
+keyboard = "*"
+
+[dev-packages]
+pytest = "*"
+pipenv-to-requirements = "*"
+coverage = "*"
+blinker = "*"
+flask-debugtoolbar = "*"
+
+[requires]
+python_version = "3"

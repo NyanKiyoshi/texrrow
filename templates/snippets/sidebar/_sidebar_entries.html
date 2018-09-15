@@ -1,0 +1,19 @@
+{%- macro _add_entry(endpoint, icon, text, is_active=False) %}
+  <li{% if is_active %} class="active"{% endif %}>
+    <a href="{{ url_for(endpoint) }}">
+      <i class="fa fa-fw fa-{{ icon }}"></i>
+      {{ text }}
+    </a>
+  </li>
+{% endmacro -%}
+
+{%- macro add_orphan(endpoint, icon, text) %}
+  {{ _add_entry(endpoint, icon, text, request.endpoint == endpoint) | safe }}
+{% endmacro -%}
+
+{%- macro add_parent(base_endpoint, root_endpoint, icon, text) %}
+  {{ _add_entry(root_endpoint, icon, text, request.endpoint.startswith(base_endpoint)) | safe }}
+{% endmacro -%}
+
+{{ add_orphan('.index', 'home', pgettext('Sidebar Entry', 'Home')) }}
+{{ add_orphan('account.logout', 'sign-out-alt', pgettext('Sidebar Entry', 'Logout')) }}

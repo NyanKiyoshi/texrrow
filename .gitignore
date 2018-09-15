@@ -1,0 +1,8 @@
+.*
+*.pyc
+__pycache__
+*.sqlite
+*.db
+webpack-bundle.json
+static/assets/
+node_modules/

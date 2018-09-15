@@ -1,0 +1,35 @@
+{% extends '_bootstrap_base.html' %}
+{% import 'macros/_breadcrumb.html' as breadcrumb %}
+
+{% block body -%}
+  {% include 'sidebar.html' %}
+
+  <div class="page">
+    {% block navbar -%}
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          {% block breadcrumb_entries -%}
+            {{ breadcrumb.add_endpoint(pgettext('Breadcrumbs Entry', 'Index'), '.index')|safe }}
+          {%- endblock %}
+        </ol>
+      </nav>
+    {%- endblock navbar %}
+
+    <div class="container-fluid">
+      {{ utils.flashed_messages()|safe }}
+      {% block content -%}
+      {%- endblock content %}
+    </div>
+  </div>
+
+  <div class="modal"></div>
+  <div class="modal fade" id="base-modal" tabindex="-1" role="dialog" aria-labelledby="popUpModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content"></div>
+    </div>
+  </div>
+
+  {% block scripts %}
+    <script src="{{url_for('static', filename='assets/front.js')}}"></script>
+  {%- endblock scripts %}
+{%- endblock body %}
