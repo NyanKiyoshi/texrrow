@@ -1,6 +1,3 @@
-{% import 'bootstrap/wtf.html' as wtf %}
-{% import 'bootstrap/utils.html' as utils %}
-
 {% block doc -%}
 <!DOCTYPE html>
   <html{% block html_attribs %}{% endblock html_attribs %}>
@@ -23,7 +20,6 @@
     <body class="">
       {%- block body %}
         <div class="container-fluid">
-          {{ utils.flashed_messages()|safe }}
           {%- block content %}{% endblock -%}
         </div>
       {% endblock -%}

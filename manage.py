@@ -4,10 +4,8 @@ import os
 
 import click
 from flask.cli import FlaskGroup, with_appcontext
-from flask_migrate.cli import db as db_group
 
 from texrrow.application import create_app
-from texrrow.core.commands import populatedb
 
 os.environ.setdefault('FLASK_ENV', 'development')
 
@@ -15,13 +13,6 @@ os.environ.setdefault('FLASK_ENV', 'development')
 @click.group(cls=FlaskGroup, create_app=create_app)
 def manager():
     """Management script for the flask application."""
-
-
-@db_group.command(name='populate')
-@with_appcontext
-def db_populate():
-    """Populate a database with example data."""
-    populatedb.run()
 
 
 @manager.group()

@@ -1,10 +1,8 @@
 {% extends '_bootstrap_base.html' %}
-{% import 'macros/_breadcrumb.html' as breadcrumb %}
 
 {% block body -%}
   <div class="page">
     <div class="container-fluid">
-      {{ utils.flashed_messages()|safe }}
       {% block content -%}
       {%- endblock content %}
     </div>
@@ -18,6 +16,6 @@
   </div>
 
   {% block scripts %}
-    <script src="{{url_for('static', filename='assets/front.js')}}"></script>
+    <script src="{{ url_for('static', filename='assets/front.js') }}"></script>
   {%- endblock scripts %}
 {%- endblock body %}

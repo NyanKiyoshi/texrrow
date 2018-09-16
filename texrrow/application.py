@@ -5,9 +5,7 @@ import jinja2
 from flask_babel import pgettext
 from flask_wtf.csrf import generate_csrf
 
-from .accounts.views import account_bp
-from .core.extensions import (
-    app, babel, bootstrap, csrf, db, login_manager, migrate)
+from .core.extensions import app, babel, bootstrap, csrf
 from .core.views import *  # noqa
 from .sendkeys.views import sendkeys_bp
 
@@ -37,7 +35,6 @@ def configure_extensions():
     register_extensions()
     register_blueprints()
 
-    configure_login()
     install_debug_toolbar()
 
 
@@ -58,12 +55,6 @@ def configure_jinja():
     app.jinja_env.globals['generate_csrf'] = generate_csrf
 
 
-def configure_login():
-    """This tells flask-login which view to use whenever
-    we need to redirect the user to this login page."""
-    login_manager.login_view = LOGIN_VIEW
-
-
 def install_debug_toolbar():
     """This will load and enable flask-debugtoolbar
     if the app is in debug mode (development)
@@ -75,12 +66,9 @@ def install_debug_toolbar():
 
 def register_extensions():
     """Setup every flask extensions used by this project."""
-    db.init_app(app)
-    migrate.init_app(app, db)
     babel.init_app(app)
     bootstrap.init_app(app)
     csrf.init_app(app)
-    login_manager.init_app(app)
 
 
 def register_blueprints():
@@ -88,8 +76,6 @@ def register_blueprints():
     This will be dropped in the future for an import level registering
     to remove any back dependencies."""
     app.register_blueprint(sendkeys_bp)
-    app.register_blueprint(account_bp)
-
 
 
 if __name__ == '__main__':

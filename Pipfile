@@ -5,18 +5,8 @@ name = "pypi"
 
 [packages]
 flask = "*"
-flask-sqlalchemy = "*"
-flask-migrate = "*"
-sqlalchemy-migrate = "*"
 flask-wtf = "*"
 flask-babel = "*"
-wtforms-alchemy = "*"
-"jinja2-highlight" = "*"
-"psycopg2" = "*"
-sqlalchemy-utils = "*"
-python-slugify = "*"
-flask-login = "*"
-passlib = "*"
 flask-bootstrap-4-alpha = {ref = "fork", git = "https://github.com/NyanKiyoshi/flask-bootstrap-4-alpha"}
 keyboard = "*"
 

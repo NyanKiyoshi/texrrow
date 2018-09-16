@@ -13,7 +13,6 @@ pipenv install
 ```shell
 ./setup.py develop
 ```
-```
 
 ### Compile the Project
 
