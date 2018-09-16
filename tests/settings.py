@@ -10,3 +10,4 @@ SECRET_KEY = 'test'
 WTF_CSRF_ENABLED = False
 
 PASSWORD_CONFIG = {'pbkdf2_sha512__default_rounds': 1}
+ENABLE_DEBUG_TOOLBAR = False

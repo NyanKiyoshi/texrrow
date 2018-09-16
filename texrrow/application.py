@@ -59,7 +59,7 @@ def install_debug_toolbar():
     """This will load and enable flask-debugtoolbar
     if the app is in debug mode (development)
     but will not if it's running the tests."""
-    if app.debug and not app.testing and app.config['ENABLE_DEBUG_TOOLBAR']:
+    if app.config.get('ENABLE_DEBUG_TOOLBAR'):
         from flask_debugtoolbar import DebugToolbarExtension
         DebugToolbarExtension(app)
 
@@ -76,7 +76,3 @@ def register_blueprints():
     This will be dropped in the future for an import level registering
     to remove any back dependencies."""
     app.register_blueprint(sendkeys_bp)
-
-
-if __name__ == '__main__':
-    create_app().run()
