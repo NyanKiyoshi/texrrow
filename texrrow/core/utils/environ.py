@@ -11,7 +11,7 @@ def getenv_or_raise(name, error_message):
     except KeyError as exc:
         exc_value = KeyError(error_message)
         raise_from(exc_value, exc)
-        raise exc_value
+        raise exc_value  # pragma: no cover
 
 
 def getenv_int(name, default=None):
