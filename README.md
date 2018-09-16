@@ -17,6 +17,13 @@
 
 A simple python web-server to remotely control a LaTeX presentation from a mobile phone to give dynamic and powerful speeches.
 
+## Usage
+```
+texrrow [PORT=5000]
+```
+Run `texrrow` in your shell and open your browser in [http://127.0.0.1:5000](http://127.0.0.1:5000)!
+
+
 ## Development Usage
 ### Install Requirements
 ```shell

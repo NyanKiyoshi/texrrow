@@ -18,6 +18,7 @@ coverage = "*"
 blinker = "*"
 flask-debugtoolbar = "*"
 mock = "*"
+requests = "*"
 
 [requires]
 python_version = "3"

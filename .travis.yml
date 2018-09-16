@@ -12,10 +12,14 @@ python:
   - "pypy"
   - "pypy3"
 install:
-  - pip install codecov pytest-cov
+  - pip install codecov pytest-cov uwsgi
+  - pip install -r requirements.txt
+  - pip install -r requirements-dev.txt
+  - rm requirements.txt
   - nvm install 8
   - npm i
   - npm run build-assets --production
+  - python setup.py develop
 matrix:
   include:
     - python: "3.7"
@@ -26,10 +30,11 @@ matrix:
       dist: xenial
   allow_failures:
     - python: "nightly"
+    - python: "pypy"
+    - python: "pypy3"
   fast_finish: true
 script:
-  - pip install -r requirements.txt
-  - pip install -r requirements-dev.txt
   - pytest --cov --cov-report=
+  - python .ci/test_servers.py
 after_success:
   - codecov

@@ -31,13 +31,16 @@ setup(
     maintainer='NyanKiyoshi',
     entry_points={
         'console_scripts': [
-            'texrrow=texrrow.__main__:main']},
+            'texrrow-uwsgi=texrrow.__main__:start_uwsgi',
+            'texrrow=texrrow.__main__:start_flask']},
     packages=find_packages(exclude=['tests']),
     include_package_data=True,
     data_files=[
         ('', ['README.md', 'LICENSE', 'requirements.txt'])],
     keywords=[],
     install_requires=requirements,
+    extras_require={
+        'uwsgi': ['uwsgi']},
     classifiers=[
         'Development Status :: 1 - Planning',
         'License :: OSI Approved :: MIT License',
