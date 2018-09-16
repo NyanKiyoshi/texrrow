@@ -7,9 +7,9 @@ name = "pypi"
 flask = "*"
 flask-wtf = "*"
 flask-babel = "*"
-flask-bootstrap-4-alpha = {ref = "fork", git = "https://github.com/NyanKiyoshi/flask-bootstrap-4-alpha"}
 keyboard = "*"
 six = "*"
+"flask-bootstrap-4-alpha" = "*"
 
 [dev-packages]
 pytest = "*"
@@ -21,3 +21,6 @@ mock = "*"
 
 [requires]
 python_version = "3"
+
+[pipenv]
+allow_prereleases = true

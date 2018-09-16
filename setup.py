@@ -10,8 +10,14 @@ else:
     long_description = ''
 
 
+requirements = []
+if isfile('requirements.txt'):
+    with open('requirements.txt') as fp:
+        requirements = fp.readlines()
+
+
 setup(
-    name='texarrow',
+    name='texrrow',
     version='0.0.0',
     author='NyanKiyoshi',
     author_email='hello@vanille.bid',
@@ -19,21 +25,24 @@ setup(
         'A simple python web-server to remotely control a LaTeX presentation '
         'from a mobile phone to give dynamic and powerful speeches.'),
     long_description=long_description,
+    long_description_content_type='text/markdown',
     url='https://github.com/NyanKiyoshi/texrrow/',
     license='MIT',
     maintainer='NyanKiyoshi',
+    entry_points={
+        'console_scripts': [
+            'texrrow=texrrow.__main__:main']},
     packages=find_packages(exclude=['tests']),
     include_package_data=True,
     data_files=[
-        ('', ['README.md', 'LICENSE'])],
+        ('', ['README.md', 'LICENSE', 'requirements.txt'])],
     keywords=[],
-    extras_require={
-        'mysql': ['flask-mysqldb']},
+    install_requires=requirements,
     classifiers=[
         'Development Status :: 1 - Planning',
         'License :: OSI Approved :: MIT License',
         'Natural Language :: English',
-        'Operating System :: POSIX :: Linux'
+        'Operating System :: POSIX :: Linux',
         'Operating System :: POSIX :: BSD',
         'Operating System :: POSIX :: BSD :: BSD/OS',
         'Operating System :: POSIX :: BSD :: FreeBSD',

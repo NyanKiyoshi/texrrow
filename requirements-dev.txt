@@ -10,9 +10,26 @@
 # `Pipfile.lock` and then regenerate `requirements*.txt`.
 ################################################################################
 
-blinker
-coverage
-flask-debugtoolbar
-mock
-pipenv-to-requirements
-pytest
+atomicwrites==1.2.1
+attrs==18.2.0
+blinker==1.4
+certifi==2018.8.24
+click==6.7
+coverage==5.0a2
+flask-debugtoolbar==0.10.1
+flask==1.0.2
+itsdangerous==0.24
+jinja2==2.10
+markupsafe==1.0
+mock==2.0.0
+more-itertools==4.3.0
+pbr==4.2.0
+pipenv-to-requirements==0.5.1
+pipenv==2018.7.1
+pluggy==0.7.1
+py==1.6.0
+pytest==3.8.0
+six==1.11.0
+virtualenv-clone==0.3.0
+virtualenv==16.0.0
+werkzeug==0.14.1

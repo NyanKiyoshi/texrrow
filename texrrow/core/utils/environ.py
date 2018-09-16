@@ -1,5 +1,6 @@
-from six import raise_from
 from os import environ
+
+from six import raise_from
 
 E_INVALID_BOOL = '%r is an invalid boolean value.'
 
