@@ -1,5 +1,6 @@
+from flask import Blueprint, Response, current_app
+
 import keyboard
-from flask import Blueprint, current_app, Response
 
 sendkeys_bp = Blueprint(
     url_prefix='/sendkeys', name='sendkeys', import_name=__name__)

@@ -16,6 +16,7 @@ pipenv-to-requirements = "*"
 coverage = "*"
 blinker = "*"
 flask-debugtoolbar = "*"
+mock = "*"
 
 [requires]
 python_version = "3"

@@ -1,4 +1,5 @@
 import os.path
+
 from texrrow.core.utils.environ import getenv, getenv_bool
 
 APP_DIR = os.path.abspath(os.path.dirname(__file__))

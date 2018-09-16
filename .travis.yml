@@ -5,16 +5,13 @@ cache:
     - node_modules
 sudo: false
 python:
+  - "2.7"
+  - "3.4"
   - "3.5"
   - "3.6"
   - "pypy3"
-services:
-  - postgresql
-env:
-  global:
-    - DATABASE_URL=postgres://postgres@localhost:5432/showcased
 install:
-  - pip install codecov pytest-cov pipenv
+  - pip install codecov pytest-cov
   - nvm install 8
   - npm i
   - npm run build-assets --production
@@ -27,17 +24,11 @@ matrix:
       sudo: required
       dist: xenial
   allow_failures:
-    - python: "pypy3"
     - python: "nightly"
   fast_finish: true
-before_script:  # code coverage tool
-  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
-  - chmod +x ./cc-test-reporter
-  - ./cc-test-reporter before-build
 script:
-  - pipenv install
+  - pip install -r requirements.txt
+  - pip install -r requirements-dev.txt
   - pytest --cov --cov-report=
-after_script:
-  - if [[ "$TRAVIS_PULL_REQUEST" == "false" && "$TRAVIS_PYTHON_VERSION" == "3.7" ]]; then ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT; fi
 after_success:
   - codecov
