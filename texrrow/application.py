@@ -1,11 +1,15 @@
 import os.path
 
 import jinja2
+
 from flask_babel import pgettext
 from flask_wtf.csrf import generate_csrf
 
+from .accounts.views import account_bp
 from .core.extensions import (
     app, babel, bootstrap, csrf, db, login_manager, migrate)
+from .core.views import *  # noqa
+from .sendkeys.views import sendkeys_bp
 
 LOGIN_VIEW = '.login'
 
@@ -64,7 +68,7 @@ def install_debug_toolbar():
     """This will load and enable flask-debugtoolbar
     if the app is in debug mode (development)
     but will not if it's running the tests."""
-    if app.debug and not app.testing:
+    if app.debug and not app.testing and app.config['ENABLE_DEBUG_TOOLBAR']:
         from flask_debugtoolbar import DebugToolbarExtension
         DebugToolbarExtension(app)
 
@@ -83,7 +87,9 @@ def register_blueprints():
     """Register the project blueprints.
     This will be dropped in the future for an import level registering
     to remove any back dependencies."""
-    return
+    app.register_blueprint(sendkeys_bp)
+    app.register_blueprint(account_bp)
+
 
 
 if __name__ == '__main__':

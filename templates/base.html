@@ -2,19 +2,7 @@
 {% import 'macros/_breadcrumb.html' as breadcrumb %}
 
 {% block body -%}
-  {% include 'sidebar.html' %}
-
   <div class="page">
-    {% block navbar -%}
-      <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-          {% block breadcrumb_entries -%}
-            {{ breadcrumb.add_endpoint(pgettext('Breadcrumbs Entry', 'Index'), '.index')|safe }}
-          {%- endblock %}
-        </ol>
-      </nav>
-    {%- endblock navbar %}
-
     <div class="container-fluid">
       {{ utils.flashed_messages()|safe }}
       {% block content -%}

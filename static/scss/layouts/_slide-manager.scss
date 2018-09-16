@@ -1,0 +1,72 @@
+html, body, .page, .container-fluid, .slide-manager {
+  height: 100%;
+}
+
+.slide-manager {
+  button {
+    background: none;
+    border: 0;
+    cursor: pointer;
+    &:focus, &:active {
+      outline: none;
+    }
+  }
+
+  .slide-page-controls {
+    display: flex;
+    flex-direction: row-reverse;
+    padding: 1rem 0;
+    button {
+      height: 1rem;
+    }
+    max-height: $slide-page-controls-max-height;
+  }
+
+  .slide-information {
+    display: flex;
+    flex-direction: column;
+    height: calc(100% - #{$slide-page-controls-max-height + 1rem});
+
+    .chronometer {
+      margin: auto;
+    }
+  }
+
+  .chronometer {
+    .elapsed {
+      text-align: center;
+      font-size: 8vh;
+      margin: 1vh;
+      display: block;
+      font-weight: bold;
+    }
+  }
+
+  .slide-buttons {
+    display: flex;
+    flex-direction: row;
+    .buttons {
+      display: flex;
+      align-items: flex-end;
+      margin: auto;
+      button {
+        border-radius: 100%;
+        background: rgba($black, 0.3);
+        color: white;
+        width: 2em;
+        height: 2em;
+      }
+      .btn-prev {
+        font-size: 7vw;
+        width: 15vw;
+        height: 15vw;
+        margin-right: 5vw;
+      }
+      .btn-next {
+        font-size: 27vw;
+        width: 55vw;
+        height: 55vw;
+      }
+    }
+  }
+}

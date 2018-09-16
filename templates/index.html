@@ -1,1 +1,40 @@
 {% extends 'base.html' %}
+
+{% block content -%}
+  <div class="slide-manager"
+       data-next-slide-url="{{ url_for('sendkeys.next') }}"
+       data-prev-slide-url="{{ url_for('sendkeys.prev') }}">
+    <div class="slide-page-controls">
+      <button class="fa fa-window-maximize" onclick="window.toggleFullScreen()" title="Toggle Fullscreen"></button>
+    </div>
+
+    <div class="slide-information">
+      <div class="chronometer">
+        <span class="elapsed"></span>
+      </div>
+
+      <div class="stick-bottom">
+        <div class="slide-buttons">
+          <div class="buttons">
+            <div>
+              <button class="btn-prev fa fa-2x fa-arrow-left"></button>
+            </div>
+            <div>
+              <button class="btn-next fa fa-2x fa-arrow-right"></button>
+            </div>
+          </div>
+        </div>
+
+        <div class="slide-buttons mt-4">
+          <div class="chronometer buttons">
+            <div>
+              <button class="start fa fa-play"></button>
+              <button class="pause fa fa-pause"></button>
+              <button class="reset fa fa-redo-alt"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{%- endblock content %}
