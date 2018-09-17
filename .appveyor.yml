@@ -10,8 +10,8 @@ init:
   - SET PATH=%PYTHON%;%PATH%
 
 install:
-  - python -m pip install -r requirements.txt
   - python -m pip install -r requirements-dev.txt
+  - python setup.py develop
 
 build: false
 

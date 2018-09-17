@@ -59,26 +59,21 @@ test-verbose:
 test-coverage:
 	pipenv run py.test -v --cov $(MODULE) --cov-report term-missing
 
-dists: requirements sdist bdist wheels
+dists: sdist bdist wheels
 
-requirements:
-	pipenv run pipenv_to_requirements -f
-
-release: requirements
-
-sdist: requirements
+sdist:
 	pipenv run python setup.py sdist
 
-bdist: requirements
+bdist:
 	pipenv run python setup.py bdist
 
-wheels: requirements
+wheels:
 	pipenv run python setup.py bdist_wheel
 
-pypi-publish: build release
+pypi-publish: build
 	pipenv run twine upload --repository pypi dist/*.whl
 
-pypi-test-publish: build release
+pypi-test-publish: build
 	pipenv run twine upload --repository testpypi dist/*.whl
 
 update:
@@ -91,8 +86,6 @@ push: githook
 
 clean:
 	pipenv --rm
-
-prepare-release: requirements
 
 # aliases to gracefully handle typos on poor dev's terminal
 check: checks

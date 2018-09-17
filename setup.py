@@ -10,10 +10,8 @@ else:
     long_description = ''
 
 
-requirements = []
-if isfile('requirements.txt'):
-    with open('requirements.txt') as fp:
-        requirements = fp.readlines()
+with open('requirements.txt') as fp:
+    requirements = fp.readlines()
 
 
 setup(
