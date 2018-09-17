@@ -1,5 +1,7 @@
 from os import environ
 
+from six import raise_from
+
 E_INVALID_BOOL = '%r is an invalid boolean value.'
 
 
@@ -7,7 +9,9 @@ def getenv_or_raise(name, error_message):
     try:
         return environ[name]
     except KeyError as exc:
-        raise KeyError(error_message) from exc
+        exc_value = KeyError(error_message)
+        raise_from(exc_value, exc)
+        raise exc_value  # pragma: no cover
 
 
 def getenv_int(name, default=None):

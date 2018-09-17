@@ -1,8 +1,8 @@
 from os.path import dirname, join, realpath
-from unittest import mock
 
 import pytest
 
+import mock
 from texrrow.application import create_app
 
 

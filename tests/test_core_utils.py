@@ -1,7 +1,6 @@
-from unittest import mock
-
 import pytest
 
+import mock
 from texrrow.core.utils import environ
 
 

@@ -1,7 +1,6 @@
 import os.path
 
 import jinja2
-
 from flask_babel import pgettext
 from flask_wtf.csrf import generate_csrf
 

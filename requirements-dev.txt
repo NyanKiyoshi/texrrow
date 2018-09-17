@@ -1,0 +1,4 @@
+pytest
+coverage
+blinker
+flask-debugtoolbar

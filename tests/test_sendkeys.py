@@ -1,6 +1,7 @@
 import pytest
-from unittest import mock
 from flask import url_for
+
+import mock
 
 from .settings import NEXT_SLIDE_KEY, PREV_SLIDE_KEY
 
